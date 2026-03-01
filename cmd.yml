@@ -13,3 +13,6 @@ kubectl get appproject -n argocd
 # List project in yaml format
 kubectl get appproject -n argocd project-with-role -o yaml
 
+# Create  a token for argocd proj "project-with-role" for role "ci-role"
+argocd proj role create-token project-with-role ci-role
+

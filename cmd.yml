@@ -1,2 +1,9 @@
 # To get the argocd UI login credentials for admin
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+
+
+
+# ARGOCD_AUTH_TOKEN - Environment variable for using the token in CLI.
+# A user can leverage tokens in the cli by either passing them in using the --auth-token flag
+argocd cluster list --auth-token token-value
+

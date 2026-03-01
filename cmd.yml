@@ -7,3 +7,9 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 # A user can leverage tokens in the cli by either passing them in using the --auth-token flag
 argocd cluster list --auth-token token-value
 
+# List project
+kubectl get appproject -n argocd
+
+# List project in yaml format
+kubectl get appproject -n argocd project-with-role -o yaml
+

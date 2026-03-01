@@ -1,2 +1,2 @@
-# To get the argocd UI example
+# To get the argocd UI login credentials for admin
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo

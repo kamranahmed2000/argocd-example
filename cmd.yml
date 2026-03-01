@@ -16,3 +16,9 @@ kubectl get appproject -n argocd project-with-role -o yaml
 # Create  a token for argocd proj "project-with-role" for role "ci-role"
 argocd proj role create-token project-with-role ci-role
 
+# Delete an argocd application using the token
+argocd app delete guestbook-dev-project --auth-token "COPY/PASTE YOUR TOKEN TOKEN"
+
+# Sync the application using the token
+# --grpc-web - Use this if your Argo CD server is exposed through a reverse proxy that requires gRPC-Web (often needed when using ingress).
+argocd app syncdemo --grpc-web --auth-token "COPY/PASTE YOUR TOKEN TOKEN"

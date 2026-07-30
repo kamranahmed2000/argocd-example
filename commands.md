@@ -10,4 +10,9 @@ https://argo-cd.readthedocs.io/en/stable/cli_installation/
 
 ------------------------------------------------------------------------------------------------------------------------
 
+Argocd admin user password to login in web.
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+
+------------------------------------------------------------------------------------------------------------------------
+
 

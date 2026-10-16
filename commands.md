@@ -56,6 +56,39 @@ argocd app help -- command to get help for argocd
 argocd app list -- command to list the argocd app from the cluster. 
 
 ------------------------------------------------------------------------------------------------------------------------
+The Argo CD Components
+Cluster --> argocd(namespace) --> 
+3 Components -- API Server, Application Controller, Repository Server.
+We access the UI using the argocd API Server. we also access the argocd cli that interacts with API Server. 
+The API server interacts with all argocd components for request/response.
+
+we can also connect to the argocd API server using gRPC/REST.
+
+ArgoCD communicates with Git Repository using the argocd Repository Server. Interacts with the Git repository and maintains a local cache of it. Also responsible for generating the final k8s manifest for a specific application.
+
+The Argo CD Application Controller continuously compares the desired state in Git with the live Kubernetes state and reconciles differences to keep applications in sync.
+
+argocd-redis: Provides caching to improve Argo CD performance by storing frequently accessed application and cluster state information.
+argocd-dex-server: Provides SSO authentication, integrating Argo CD with identity providers using OIDC/SAML.
+argocd-applicationset-controller: Automatically creates and manages multiple Argo CD Applications, especially useful for deploying across multiple clusters/environments.
+
+Easy interview memory: Redis = Cache | Dex = Authentication/SSO | ApplicationSet = Manage many applications.
+
+
+------------------------------------------------------------------------------------------------------------------------
+Argo CD Components
+API Server → Entry point for UI, CLI, REST/gRPC requests.
+Repository Server → Connects to Git, caches the repo, and generates Kubernetes manifests.
+Application Controller → Compares desired state in Git vs. live state in Kubernetes and reconciles differences.
+Redis → Cache for manifest and cluster/application state.
+Dex Server → Handles SSO/authentication using OIDC/SAML.
+ApplicationSet Controller → Creates/manages multiple Argo CD applications at scale.
+Lifecycle Hooks → Run actions during different stages of application synchronization.
+⭐ 10-second memory trick
+
+API = Access | Repo = Manifests | Controller = Sync | Redis = Cache | Dex = SSO | ApplicationSet = Scale
+------------------------------------------------------------------------------------------------------------------------
+
 
 
 

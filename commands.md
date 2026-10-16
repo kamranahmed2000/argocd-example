@@ -144,6 +144,8 @@ The Application CRD is a declarative definition that tells Argo CD what applicat
                   |        |        |
                   v        v        v
                 Auto     Prune   Self-Heal
+
+
 What each section means
 Project: Defines which Argo CD project manages the application.
 Source: Defines where the application comes from, such as Git repo, branch, and path.

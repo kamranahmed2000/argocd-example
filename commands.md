@@ -170,6 +170,7 @@ Sync Policy: Defines how Argo CD deploys and maintains it, such as Auto Sync, Pr
 Quick Interview Memory
 Project = WHO | Source = FROM WHERE | Destination = TO WHERE | Sync = HOW
 
+```
 Application YAML
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -186,6 +187,7 @@ spec:
   destination:
     server: <YOUR_K8S_SERVER>
     namespace: guestbook-prod
+```
 
 ------------------------------------------------------------------------------------------------------------------------    
     

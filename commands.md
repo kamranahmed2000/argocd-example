@@ -89,6 +89,8 @@ Lifecycle Hooks → Run actions during different stages of application synchroni
 API = Access | Repo = Manifests | Controller = Sync | Redis = Cache | Dex = SSO | ApplicationSet = Scale
 
 ------------------------------------------------------------------------------------------------------------------------
+![Uploading image.png…]()
+
 The Application CRD
                     Argo CD Application CRD
                              │
@@ -156,7 +158,61 @@ Quick memory: Project = WHO | Source = FROM WHERE | Destination = TO WHERE | Syn
 
 ------------------------------------------------------------------------------------------------------------------------
 
+Argo CD Application CRD
+The Application CRD is a declarative definition that tells Argo CD what application to manage, where to get it from, where to deploy it, and how to synchronize it.
 
+                 Argo CD Application CRD
+                           |
+          +----------------+----------------+
+          |                |                |
+          v                v                v
+       PROJECT           SOURCE         DESTINATION
+    "Who manages?"    "Where from?"     "Where to?"
+          |                |                |
+          v                v                v
+    Argo CD Project    Git Repository   K8s Cluster
+                           |                |
+                       Branch/Tag        Namespace
+                           |
+                       Folder/Chart
+                           |
+                           v
+                  Kubernetes Manifests
+                           |
+                           v
+                      SYNC POLICY
+                         "How?"
+                           |
+                  +--------+--------+
+                  |        |        |
+                  v        v        v
+                Auto     Prune   Self-Heal
+What each section means
+Project: Defines which Argo CD project manages the application.
+Source: Defines where the application comes from, such as Git repo, branch, and path.
+Destination: Defines where the application is deployed, meaning Kubernetes cluster and namespace.
+Sync Policy: Defines how Argo CD deploys and maintains it, such as Auto Sync, Prune, and Self-Heal.
+Quick Interview Memory
+Project = WHO | Source = FROM WHERE | Destination = TO WHERE | Sync = HOW
+
+Application YAML
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook-prod
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: <YOUR_REPO_URL>
+    targetRevision: HEAD
+    path: guestbook
+
+  destination:
+    server: <YOUR_K8S_SERVER>
+    namespace: guestbook-prod
+
+------------------------------------------------------------------------------------------------------------------------    
     
 
 

@@ -19,4 +19,15 @@ Architecture
           v            v            v
      DEV Cluster   QA Cluster   PROD Cluster
 
-     
+---
+
+Does every cluster need Argo CD?
+
+No. A full Argo CD installation is not required on every target cluster.
+
+The target clusters are registered with Argo CD.
+
+argocd cluster add <context-name>
+``
+
+---

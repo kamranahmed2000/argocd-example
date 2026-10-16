@@ -114,6 +114,7 @@ Sync Policy: Defines how Argo CD deploys and maintains it, such as Auto Sync, Pr
 Quick memory: Project = WHO | Source = FROM WHERE | Destination = TO WHERE | Sync = HOW
 
 ------------------------------------------------------------------------------------------------------------------------
+Application CRD = Application Custom Resource Definition.
 
 Argo CD Application CRD
 The Application CRD is a declarative definition that tells Argo CD what application to manage, where to get it from, where to deploy it, and how to synchronize it.

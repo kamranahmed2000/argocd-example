@@ -15,4 +15,23 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 ------------------------------------------------------------------------------------------------------------------------
 
+kubectl get svc -n argocd
+Form the service list, use argocd-server for port forwarding.
+kubectl port-forward svc/argocd-server -n argocd 8080:80
 
+Post which, use https://127.0.0.1:8080 to access argocd UI from the browser.
+
+For login credentials, 
+username : admin
+password: 
+
+password is available in a secret. 
+kubectl get secret -n argocd
+
+use the secret named argocd-initial-admin-secret 
+kubectl get argocd-initial-admin-secret -o jsonpath="{.data.password}" -n argocd
+
+the password that we get is base 64 encoded. to decode and get the raw password, use the below command
+kubectl get argocd-initial-admin-secret -o jsonpath="{.data.password}" -n argocd | base64 -d 
+
+------------------------------------------------------------------------------------------------------------------------

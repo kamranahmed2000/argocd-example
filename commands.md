@@ -35,3 +35,14 @@ the password that we get is base 64 encoded. to decode and get the raw password,
 kubectl get argocd-initial-admin-secret -o jsonpath="{.data.password}" -n argocd | base64 -d 
 
 ------------------------------------------------------------------------------------------------------------------------
+
+To install argocd CLI
+for mac use, brew install argocd
+
+which argocd -- command to get the argocd installation path
+
+argocd version -- command to get the argocd version. 
+------------------------------------------------------------------------------------------------------------------------
+
+
+

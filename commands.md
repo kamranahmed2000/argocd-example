@@ -42,6 +42,19 @@ for mac use, brew install argocd
 which argocd -- command to get the argocd installation path
 
 argocd version -- command to get the argocd version. 
+
+------------------------------------------------------------------------------------------------------------------------
+to connect argocd from cli to the server.
+argocd login localhost:8080 --name local
+press y to proceed and enter your username and password to login to argocd cli.
+
+argocd context
+argocd account get-user-info -- command to get the logged in user information.
+argocd account update-password -- command to update your current logged in user password. 
+argocd app help -- command to get help for argocd
+
+argocd app list -- command to list the argocd app from the cluster. 
+
 ------------------------------------------------------------------------------------------------------------------------
 
 

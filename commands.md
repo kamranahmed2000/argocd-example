@@ -92,31 +92,6 @@ API = Access | Repo = Manifests | Controller = Sync | Redis = Cache | Dex = SSO 
 ![Uploading image.png…]()
 
 The Application CRD
-                    Argo CD Application CRD
-                             │
-          ┌──────────────────┼──────────────────┐
-          │                  │                  │
-          ▼                  ▼                  ▼
-      PROJECT             SOURCE           DESTINATION
-   "Who manages?"      "Where from?"       "Where to?"
-          │                  │                  │
-          │                  │                  │
-     Argo CD Project     Git Repository      K8s Cluster
-                             │                  │
-                         Branch/Tag          Namespace
-                             │
-                         Folder/Chart
-                             │
-                             ▼
-                    Kubernetes Manifests
-                             │
-                             ▼
-                       SYNC POLICY
-                         "How?"
-                             │
-                   ┌─────────┼─────────┐
-                   ▼         ▼         ▼
-                 Auto      Prune    Self-Heal
 
 PROJECT      → WHO manages it?
 SOURCE       → WHERE does configuration come from?

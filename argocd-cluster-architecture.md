@@ -1,4 +1,5 @@
 Argo CD Multi-Cluster Architecture
+
 Overview
 Argo CD can be installed in a Kubernetes cluster and can manage registered target Kubernetes clusters.
 
@@ -38,6 +39,7 @@ Architecture
       | Application | | Application | | Application |
       | Workloads   | | Workloads   | | Workloads   |
       +-------------+ +-------------+ +-------------+
+
 Where is Argo CD installed?
 Argo CD can be installed in a Kubernetes cluster that acts as the central location from which registered Kubernetes clusters are managed.
 
@@ -52,6 +54,7 @@ Argo CD can be installed in a Kubernetes cluster that acts as the central locati
          v         v         v
         DEV        QA       PROD
       Cluster    Cluster    Cluster
+
 Does Every Cluster Need Argo CD?
 No.
 
@@ -85,6 +88,7 @@ DEV CLUSTER     QA CLUSTER     PROD CLUSTER
 -----------     ----------     ------------
 Workloads       Workloads      Workloads
 Access/RBAC     Access/RBAC    Access/RBAC
+
 How Does Argo CD Know Which Cluster to Deploy To?
 The Argo CD Application CRD (Custom Resource Definition) contains the source and destination information.
 

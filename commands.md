@@ -101,24 +101,6 @@ SYNC POLICY  → HOW should Argo CD manage/sync it?
 ------------------------------------------------------------------------------------------------------------------------
 The Argo CD Application CRD is a declarative definition that tells Argo CD which project owns an application, where to get the desired state from, where to deploy it, and how synchronization should be handled.
 
-'''
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: guestbook-prod
-  namespace: argocd
-spec:
-  project: default
-  source:
-    repoURL: <YOUR_REPO_URL>
-    targetRevision: HEAD
-    path: guestbook
-
-  destination:
-    server: <YOUR_K8S_SERVER>
-    namespace: guestbook-prod
-'''
-
 Application CRD = Project + Source + Destination + Sync Policy
 Or even easier:
 WHO → WHERE FROM → WHERE TO → HOW

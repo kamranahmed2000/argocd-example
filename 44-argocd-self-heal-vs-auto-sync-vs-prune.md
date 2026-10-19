@@ -304,6 +304,9 @@ The Kubernetes Deployment controller recreates the Pod. This is not an Argo CD S
 
 > **Auto Sync automatically applies changes from Git to Kubernetes. Self-Heal corrects live-cluster drift by restoring resources to match Git. Prune deletes Kubernetes resources that have been removed from Git.**
 
+What is the key operational difference between "Automated Sync" and "Self-Heal"?
+Automated Sync reacts to changes in the Git repository(Source), while Self-Heal reacts to changes in the Kubernetes Cluster (Destination).
+
 ---
 
 ## Quick Memory Trick

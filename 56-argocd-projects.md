@@ -44,3 +44,9 @@ spec:
     - group: ''
       kind: 'Namespace'
 ```
+
+## Command to list project
+```
+argocd proj get <PROJECT_NAME>
+
+```
